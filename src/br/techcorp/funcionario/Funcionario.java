@@ -17,15 +17,20 @@ public class Funcionario {
     }
 
     public double calcularSalarioLiquido() {
-
+        double bonus = salarioBase * percentualBonus / 100;
+        return (salarioBase + bonus) * 0.85;
     }
 
-    public boolean aplicarAumento(double percentual) {
-
+    public void aplicarAumento(double percentual) {
+        if(percentual > 0 && percentual <= 30) {
+            salarioBase *= (1 + percentual / 100);
+        }
     }
 
     public void aplicarBonus(double percentual) {
-
+        if(percentual >= 0) {
+            percentualBonus = percentual;
+        }
     }
 
     public void desligar() {
